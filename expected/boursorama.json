@@ -1,0 +1,29 @@
+{
+  "profile": "boursorama",
+  "transactions": [
+    {
+      "row": 2,
+      "date": "2026-10-01",
+      "label": "Facture DEMO-002",
+      "amountCents": 120000,
+      "currency": "EUR",
+      "duplicateOf": null
+    },
+    {
+      "row": 3,
+      "date": "2026-10-02",
+      "label": "Abonnement fictif",
+      "amountCents": -2490,
+      "currency": "EUR",
+      "duplicateOf": null
+    }
+  ],
+  "summary": {
+    "count": 2,
+    "possibleDuplicates": 0,
+    "totalsCentsByCurrency": {
+      "EUR": 117510
+    }
+  },
+  "limitations": "Synthetic example profiles only. Real bank exports not verified. Possible duplicates are preserved; review them before reconciliation."
+}
