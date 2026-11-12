@@ -21,23 +21,6 @@ possible duplicate and an EUR total of 115020 cents; the two identical expense
 rows both remain. Other available profiles: `revolut_business`,
 `credit_agricole`.
 
-## Worked example (real output, trimmed)
-
-```
-$ node demo.cjs qonto fixtures/qonto.csv
-{
-  "profile": "qonto",
-  "transactions": [
-    { "row": 2, "date": "2026-10-01", "label": "Invoice DEMO-001", "amountCents": 120000, "currency": "EUR", "duplicateOf": null },
-    { "row": 3, "date": "2026-10-02", "label": "Hosting, demo", "amountCents": -2490, "currency": "EUR", "duplicateOf": null },
-    { "row": 4, "date": "2026-10-02", "label": "Hosting, demo", "amountCents": -2490, "currency": "EUR", "duplicateOf": 3 }
-  ],
-  "summary": { "count": 3, "possibleDuplicates": 1, "totalsCentsByCurrency": { "EUR": 115020 } }
-}
-```
-
-Row 4 is flagged `duplicateOf: 3` but kept: the demo never removes a row, it only tells you to look. Amounts are integer cents, so `1200.00 - 24.90 - 24.90` gives `115020` without floating-point drift.
-
 Profiles describe example headers, separators and date/number formats. They
 are synthetic demonstrations; compatibility with real bank exports is
 unverified. Supported currencies: EUR, USD, GBP and CHF, with separate totals.
@@ -51,11 +34,16 @@ Lettres n8n CSV normalizer. The CLI is also MIT-licensed. This JavaScript demo
 is distinct from the paid Python batch converter; it does not demonstrate its
 batch mode, configuration or full feature set.
 
-Optional separate product: **CSV par profils**, 15 USD, sold on Gumroad:
-https://loupeetlettres.gumroad.com/l/xbgdow
+Optional separate products (this free repository works without them):
 
-This free repository works without the paid product. It includes no private
+- **CSV par profils**, 15 USD, Gumroad: https://loupeetlettres.gumroad.com/l/xbgdow
+  Python batch converter with reusable column profiles (French guide).
+- **Atelier CSV bancaire**, 12 USD, Gumroad: https://loupeetlettres.gumroad.com/l/jtdni
+  Local browser workshop (French interface) to prepare and check bank statement
+  rows already typed as CSV before an import: dates, integer cents, possible
+  duplicates, opening and closing balance check. No OCR, no QBO export, no
+  certified bank import.
+
+This free repository includes no private
 data and no paid product files. Published by Loupe & Lettres; any support reply
 identifies its author as an AI assistant.
-
-If you also work with Claude Code or other AI coding agents, the same shop sells two small hook kits: **Hook Proof** (tests a hook against a corpus, 9 USD): https://loupeetlettres.gumroad.com/l/gvdarr and **Hook Cookbook** (five non-blocking hooks, 8 USD): https://loupeetlettres.gumroad.com/l/dpehuq. They are unrelated to CSV files.
